@@ -1,5 +1,5 @@
 // const Url = "http://api.weatherapi.com/v1/forecast.json?key=a98961f3ae134259843204751232208&days=1&aqi=no&alerts=no&q="
-const apiUrl = "http://api.weatherapi.com/v1/forecast.json?key=a98961f3ae134259843204751232208&days=2&aqi=no&alerts=no&q="
+const apiUrl = "https://api.weatherapi.com/v1/forecast.json?key=a98961f3ae134259843204751232208&days=2&aqi=no&alerts=no&q="
 const searchBox = document.querySelector(".search input")
 const searchBtn = document.querySelector(".search button")
 const weatherIcon= document.querySelector(".weather-icon")
