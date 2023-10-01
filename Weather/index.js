@@ -19,16 +19,22 @@ async function checkWeather(city){
     tomorrowArray = data.forecast.forecastday[1].hour;
 
     myArray = todayArray.concat(tomorrowArray);
-
-
+    
+    
     const hourlyE1 = document.querySelector(".hourly")
 
+    //remove any existing temperatures
+    while (hourlyE1.firstChild) {
+        hourlyE1.removeChild(hourlyE1.firstChild);
+    }
+    
     let current_hour = new Date().getHours();
    
    for (let index = current_hour; index < current_hour+24; index++) {
-    
+
         console.log("index="+index)
         const element = myArray[index];
+        
         const temp_timeE1 = document.createElement("temp_time");
         h_time = element.time;
         
