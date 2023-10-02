@@ -66,10 +66,10 @@ async function checkWeather(city){
         temp_timeE1.appendChild(labelE2); 
         hourlyE1.appendChild(temp_timeE1) ;
     }
-    document.querySelector(".city").innerHTML = data.location.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.current.temp_c) + "°C";
-    document.querySelector(".humidity").innerHtml = data.current.humidity + "%";
-    document.querySelector(".wind").innerHtml = data.current.wind_kph + " km/hr ";
+    document.querySelector(".city").innerText = data.location.name;
+    document.querySelector(".temp").innerText = Math.round(data.current.temp_c) + "°C";
+    document.querySelector(".humidity").innerText = data.current.humidity + "%";
+    document.querySelector(".wind").innerText = data.current.wind_kph + " km/hr ";
     if(data.current.condition.text.search("clear")){weatherIcon.src= "images/clear.png"}
     if(data.current.condition.text.search("cloud")!=-1){weatherIcon.src= "images/clouds.png"}
     if(data.current.condition.text.search("drizzle")!=-1){weatherIcon.src= "images/drizzle.png"}
