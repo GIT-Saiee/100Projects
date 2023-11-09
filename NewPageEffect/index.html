@@ -1,0 +1,93 @@
+<html>
+<head>
+   <title>Previous and Next Buttons: non-working on end positions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container" id ="main-container">
+        <!-- <div class="card" id="card1">
+            <div class="front"><h1>My Front Text</h1></div>
+            <div class="back"><h1>My Back Text</h1></div>
+        </div>
+
+        <div class="card" id="card2">
+            <div class="front"><h1>My Front1 Text</h1></div>
+            <div class="back"><h1>My Back1 Text</h1></div>
+        </div>
+
+        <div class="card" id="card3">
+            <div class="front"><h1>My Front2 Text</h1></div>
+            <div class="back"><h1>My Back2 Text</h1></div>
+        </div>
+
+        <div class="card" id="card4">
+            <div class="front"><h1>My Front3 Text</h1></div>
+            <div class="back"><h1>My Back3 Text</h1></div> -->
+        </div>
+        
+    </div>
+   <button id="prevBtn" disabled > Previous </button>
+   <button id = "nextBtn" >Next </button>
+   <script>
+      let maxItem = 10;
+      let currentItem = 0;
+      prevBtn.style.backgroundColor = "red";
+      updateContent();
+      document.getElementById("prevBtn").addEventListener("click", function() {
+         if(currentItem > 0) {
+            currentItem--;
+            document.getElementById("nextBtn").disabled = false;
+            nextBtn.style.backgroundColor = "";
+         }
+         if(currentItem === 0) {
+            this.disabled = true;
+            prevBtn.style.backgroundColor = "red";
+         }
+         updateContent() ; 
+      });
+      document.getElementById("nextBtn").addEventListener("click", function() {
+         if(currentItem < maxItem) {
+            currentItem++;
+            document.getElementById("prevBtn").disabled = false;
+            prevBtn.style.backgroundColor = "";
+         }
+         if(currentItem === maxItem) {
+            this.disabled = true;
+            nextBtn.style.backgroundColor = "red";
+         }
+         updateContent() ;
+      });
+      function updateContent() {
+        card_id ="card"+currentItem;
+        front_id="front"+currentItem;
+        back_id="back"+currentItem;
+         // update UI or make API call here
+         var content = document.getElementById("main-container");
+         console.log(content.childNodes);
+         
+         const card = document.createElement("div");
+         card.setAttribute("id",card_id);
+         card.classList.add(".card");
+
+         const frontE1 = document.createElement("div");
+         frontE1.setAttribute("id",front_id);
+         frontE1.classList.add(".front");
+
+         const backE1 = document.createElement("div");
+         backE1.setAttribute("id",back_id);
+         backE1.classList.add(".back");
+         card.appendChild(frontE1);
+         card.appendChild(backE1);
+         content.appendChild(card);
+         
+         card.addEventListener("click",flipCard);
+         function flipCard(){
+            card.classList.toggle("flipCard");
+        }
+
+         document.getElementById(front_id).innerText = "Current Item: " + currentItem ;
+         document.getElementById(back_id).innerText = "Current Item: " + currentItem ;
+    }
+   </script>
+</body>
+</html> 

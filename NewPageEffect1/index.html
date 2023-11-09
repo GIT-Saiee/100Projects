@@ -1,0 +1,55 @@
+<html>
+<head>
+   <title>Previous and Next Buttons: non-working on end positions</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id = "card" > 
+    <div class="front">Front Text</div>
+    <div class="back">Back Text</div>
+    </div>
+   <button id="prevBtn" disabled > Previous </button>
+   <button id = "nextBtn" >Next </button>
+   <script>
+      let maxItem = 10;
+      let currentItem = 0;
+      prevBtn.style.backgroundColor = "red";
+      updateContent();
+      document.getElementById("prevBtn").addEventListener("click", function() {
+         if(currentItem > 0) {
+            currentItem--;
+            document.getElementById("nextBtn").disabled = false;
+            nextBtn.style.backgroundColor = "";
+         }
+         if(currentItem === 0) {
+            this.disabled = true;
+            prevBtn.style.backgroundColor = "red";
+         }
+         updateContent() ; 
+      });
+      document.getElementById("nextBtn").addEventListener("click", function() {
+         if(currentItem < maxItem) {
+            currentItem++;
+            document.getElementById("prevBtn").disabled = false;
+            prevBtn.style.backgroundColor = "";
+         }
+         if(currentItem === maxItem) {
+            this.disabled = true;
+            nextBtn.style.backgroundColor = "red";
+         }
+         updateContent() ;
+      });
+      function updateContent() {
+        const cardE1 = document.getElementById("card");
+        cardE1.addEventListener("click",flipCard);
+        function flipCard(){
+        cardE1.classList.toggle("flipCard");
+        }
+         // update UI or make API call here
+        //  var content = document.getElementById("content");
+         cardE1.firstChild.innerHTML = "Current Item: " + currentItem + "<br><br>";
+         cardE1.lastChild.innerHTML = "Current Item: " + currentItem + "<br><br>";
+        } 
+   </script>
+</body>
+</html> 
